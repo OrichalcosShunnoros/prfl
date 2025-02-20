@@ -1,9 +1,9 @@
-import { motion } from 'framer-motion';
-import * as Icons from 'lucide-react';
-import { SkillBar } from '../components/SkillBar';
-import { skills } from '../data';
+import { motion } from "framer-motion";
+import * as Icons from "lucide-react";
+import { SkillBar } from "../components/SkillBar";
+import { skills } from "../data";
 
-export function Skills() {
+export const Skills = () => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -44,4 +44,4 @@ export function Skills() {
       </div>
     </motion.div>
   );
-}
+};

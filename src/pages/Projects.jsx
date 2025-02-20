@@ -1,8 +1,8 @@
-import { motion } from 'framer-motion';
-import { ProjectCard } from '../components/ProjectCard';
-import { projects } from '../data';
+import { motion } from "framer-motion";
+import { ProjectCard } from "../components/ProjectCard";
+import { projects } from "../data";
 
-export function Projects() {
+export const Projects = () => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -25,4 +25,4 @@ export function Projects() {
       </div>
     </motion.div>
   );
-}
+};

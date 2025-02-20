@@ -1,43 +1,53 @@
-import { motion } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
-import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { ThemeToggle } from './ThemeToggle';
+import { Link, useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
+import { Menu, X } from "lucide-react";
+import { useState } from "react";
+
+import { ThemeToggle } from "./ThemeToggle";
 
 const links = [
-  { path: '/', label: 'Home' },
-  { path: '/about', label: 'About' },
-  { path: '/skills', label: 'Skills' },
-  { path: '/projects', label: 'Projects' }
+  { path: "/", label: "Home" },
+  { path: "/about", label: "About" },
+  { path: "/skills", label: "Skills" },
+  { path: "/projects", label: "Projects" },
 ];
 
-export function Navbar() {
+export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
   return (
-    <header className="sticky top-0 bg-white dark:bg-gray-800 shadow-sm z-50">
+    <header className="sticky top-0 bg-gray-100 dark:bg-gray-800 shadow-sm z-50">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <Link to="/" className="text-2xl font-bold">
-            Portfolio
+          <Link
+            to="/"
+            className="text-2xl font-bold text-gray-800 dark:text-white"
+          >
+            Ramarak
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             <div className="flex gap-6">
               {links.map((link) => (
-                <Link
+                <motion.div
                   key={link.path}
-                  to={link.path}
-                  className={`${
-                    location.pathname === link.path
-                      ? 'text-blue-500'
-                      : 'text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400'
-                  } transition-colors`}
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                  className="transform origin-center"
                 >
-                  {link.label}
-                </Link>
+                  <Link
+                    to={link.path}
+                    className={`${
+                      location.pathname === link.path
+                        ? "text-blue-600 dark:text-blue-400 font-semibold"
+                        : "text-gray-800 dark:text-gray-300"
+                    } hover:text-blue-600 dark:hover:text-blue-400 transition-colors`}
+                  >
+                    {link.label}
+                  </Link>
+                </motion.div>
               ))}
             </div>
             <ThemeToggle />
@@ -48,9 +58,13 @@ export function Navbar() {
             <ThemeToggle />
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-600 dark:text-gray-300"
+              className="text-gray-800 dark:text-gray-300"
             >
-              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
             </button>
           </div>
         </div>
@@ -65,18 +79,24 @@ export function Navbar() {
           >
             <div className="flex flex-col gap-4">
               {links.map((link) => (
-                <Link
+                <motion.div
                   key={link.path}
-                  to={link.path}
-                  onClick={() => setIsOpen(false)}
-                  className={`${
-                    location.pathname === link.path
-                      ? 'text-blue-500'
-                      : 'text-gray-600 dark:text-gray-300'
-                  } transition-colors`}
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                  className="transform origin-center"
                 >
-                  {link.label}
-                </Link>
+                  <Link
+                    to={link.path}
+                    onClick={() => setIsOpen(false)}
+                    className={`${
+                      location.pathname === link.path
+                        ? "text-blue-600 dark:text-blue-400 font-semibold"
+                        : "text-gray-800 dark:text-gray-300"
+                    } hover:text-blue-600 dark:hover:text-blue-400 transition-colors`}
+                  >
+                    {link.label}
+                  </Link>
+                </motion.div>
               ))}
             </div>
           </motion.div>
@@ -84,4 +104,4 @@ export function Navbar() {
       </nav>
     </header>
   );
-}
+};

@@ -1,10 +1,10 @@
-import { Github, Linkedin, Twitter } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { Github, Linkedin, Twitter } from "lucide-react";
+import { motion } from "framer-motion";
 
 const iconMap = {
   Github,
   Linkedin,
-  Twitter
+  Twitter,
 };
 
 export function SocialLinks({ links }) {

@@ -1,5 +1,5 @@
-import { Github } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { Github } from "lucide-react";
+import { motion } from "framer-motion";
 
 export function ProjectCard({ project, index }) {
   return (

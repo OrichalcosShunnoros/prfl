@@ -1,8 +1,8 @@
-import { motion } from 'framer-motion';
-import { Briefcase } from 'lucide-react';
-import { about } from '../data';
+import { motion } from "framer-motion";
+import { Briefcase } from "lucide-react";
+import { about } from "../data";
 
-export function About() {
+export const About = () => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -24,9 +24,9 @@ export function About() {
         transition={{ delay: 0.2 }}
         className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 mb-8"
       >
-        <h3 className="text-xl font-bold mb-4">Professional Summary</h3>
+        <h3 className="text-xl font-bold mb-4">Professional Information</h3>
         <p className="text-gray-600 dark:text-gray-300 mb-6">{about.summary}</p>
-        
+
         <h3 className="text-xl font-bold mb-4">Development Philosophy</h3>
         <p className="text-gray-600 dark:text-gray-300">{about.philosophy}</p>
       </motion.div>
@@ -62,4 +62,4 @@ export function About() {
       </motion.div>
     </motion.div>
   );
-}
+};
