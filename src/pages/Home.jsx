@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { SocialLinks } from "../components/SocialLinks";
 import codeProfile from "../assets/code-timeline.png";
 import { socialLinks } from "../data";
+import { Chart } from "../components/Chart";
 
 export const Home = () => {
   return (
@@ -12,7 +13,7 @@ export const Home = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="flex items-center justify-center"
+      className="flex items-center justify-center min-h-screen overflow-hidden"
     >
       <div className="max-w-3xl mx-auto px-4 py-16 text-center">
         <motion.img
@@ -38,7 +39,7 @@ export const Home = () => {
           transition={{ delay: 0.2 }}
           className="text-xl text-gray-600 dark:text-gray-300 mb-8"
         >
-          I'm analyst and software developer with more than a year of
+          I'm an analyst and software developer with more than a year of
           experience. I like challenges and innovation.
         </motion.p>
 
@@ -66,9 +67,13 @@ export const Home = () => {
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.4 }}
-          className="flex justify-center"
+          className="flex flex-col items-center w-full"
         >
           <SocialLinks links={socialLinks} />
+
+          <div className="w-dvw overflow-x-auto max-w">
+            <Chart />
+          </div>
         </motion.div>
       </div>
     </motion.div>

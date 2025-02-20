@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Personalización de la barra de scroll */
+::-webkit-scrollbar {
+  width: 5px; /* Ancho de la barra */
+}
+
+::-webkit-scrollbar-track {
+  background: #333; /* Color de fondo */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #999; /* Color del scroll */
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #666; /* Color cuando pasas el mouse */
+}
